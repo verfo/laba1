@@ -85,11 +85,28 @@ public class Complex {
         return this;
     }
 
+    public Complex div(Complex b) {
+        double denom = b.re * b.re + b.im * b.im;
+        double real = (this.re * b.re + this.im * b.im) / denom;
+        double imag = (this.im * b.re - this.re * b.im) / denom;
+        return new Complex(real, imag);
+    }
+    public String toString() {
+        return re + " + " + im + "i";
+    }
     /**
      * Square of Complex object's length, we're using square of length to 
      * eliminate the computation of square root
      * @return square of length
     */
+    public double getRe() {
+        return re;
+    }
+
+    public double getIm() {
+        return im;
+    }
+
     public double lengthSQ() {
         return re * re + im * im;
     }
